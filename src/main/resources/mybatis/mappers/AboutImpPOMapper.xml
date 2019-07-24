@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hhjx.mage.dao.AboutImpPOMapper" >
+  <resultMap id="BaseResultMap" type="com.hhjx.mage.po.AboutImpPO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="p1_eng" property="p1Eng" jdbcType="VARCHAR" />
+    <result column="p1_cha" property="p1Cha" jdbcType="VARCHAR" />
+    <result column="p1_img" property="p1Img" jdbcType="VARCHAR" />
+    <result column="p2_eng" property="p2Eng" jdbcType="VARCHAR" />
+    <result column="p2_cha" property="p2Cha" jdbcType="VARCHAR" />
+    <result column="p2_detail" property="p2Detail" jdbcType="VARCHAR" />
+    <result column="pe_img" property="peImg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, p1_eng, p1_cha, p1_img, p2_eng, p2_cha, p2_detail, pe_img
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from about_imp
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from about_imp
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hhjx.mage.po.AboutImpPO" >
+    insert into about_imp (id, p1_eng, p1_cha, 
+      p1_img, p2_eng, p2_cha, 
+      p2_detail, pe_img)
+    values (#{id,jdbcType=INTEGER}, #{p1Eng,jdbcType=VARCHAR}, #{p1Cha,jdbcType=VARCHAR}, 
+      #{p1Img,jdbcType=VARCHAR}, #{p2Eng,jdbcType=VARCHAR}, #{p2Cha,jdbcType=VARCHAR}, 
+      #{p2Detail,jdbcType=VARCHAR}, #{peImg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hhjx.mage.po.AboutImpPO" >
+    insert into about_imp
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="p1Eng != null" >
+        p1_eng,
+      </if>
+      <if test="p1Cha != null" >
+        p1_cha,
+      </if>
+      <if test="p1Img != null" >
+        p1_img,
+      </if>
+      <if test="p2Eng != null" >
+        p2_eng,
+      </if>
+      <if test="p2Cha != null" >
+        p2_cha,
+      </if>
+      <if test="p2Detail != null" >
+        p2_detail,
+      </if>
+      <if test="peImg != null" >
+        pe_img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="p1Eng != null" >
+        #{p1Eng,jdbcType=VARCHAR},
+      </if>
+      <if test="p1Cha != null" >
+        #{p1Cha,jdbcType=VARCHAR},
+      </if>
+      <if test="p1Img != null" >
+        #{p1Img,jdbcType=VARCHAR},
+      </if>
+      <if test="p2Eng != null" >
+        #{p2Eng,jdbcType=VARCHAR},
+      </if>
+      <if test="p2Cha != null" >
+        #{p2Cha,jdbcType=VARCHAR},
+      </if>
+      <if test="p2Detail != null" >
+        #{p2Detail,jdbcType=VARCHAR},
+      </if>
+      <if test="peImg != null" >
+        #{peImg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.AboutImpPO" >
+    update about_imp
+    <set >
+      <if test="p1Eng != null" >
+        p1_eng = #{p1Eng,jdbcType=VARCHAR},
+      </if>
+      <if test="p1Cha != null" >
+        p1_cha = #{p1Cha,jdbcType=VARCHAR},
+      </if>
+      <if test="p1Img != null" >
+        p1_img = #{p1Img,jdbcType=VARCHAR},
+      </if>
+      <if test="p2Eng != null" >
+        p2_eng = #{p2Eng,jdbcType=VARCHAR},
+      </if>
+      <if test="p2Cha != null" >
+        p2_cha = #{p2Cha,jdbcType=VARCHAR},
+      </if>
+      <if test="p2Detail != null" >
+        p2_detail = #{p2Detail,jdbcType=VARCHAR},
+      </if>
+      <if test="peImg != null" >
+        pe_img = #{peImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hhjx.mage.po.AboutImpPO" >
+    update about_imp
+    set p1_eng = #{p1Eng,jdbcType=VARCHAR},
+      p1_cha = #{p1Cha,jdbcType=VARCHAR},
+      p1_img = #{p1Img,jdbcType=VARCHAR},
+      p2_eng = #{p2Eng,jdbcType=VARCHAR},
+      p2_cha = #{p2Cha,jdbcType=VARCHAR},
+      p2_detail = #{p2Detail,jdbcType=VARCHAR},
+      pe_img = #{peImg,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

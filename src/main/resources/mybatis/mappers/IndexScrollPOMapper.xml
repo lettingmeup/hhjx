@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hhjx.mage.dao.IndexScrollPOMapper" >
+  <resultMap id="BaseResultMap" type="com.hhjx.mage.po.IndexScrollPO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="src" property="src" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, src
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from index_scroll
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from index_scroll
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hhjx.mage.po.IndexScrollPO" >
+    insert into index_scroll (id, src)
+    values (#{id,jdbcType=INTEGER}, #{src,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hhjx.mage.po.IndexScrollPO" >
+    insert into index_scroll
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="src != null" >
+        src,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="src != null" >
+        #{src,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.IndexScrollPO" >
+    update index_scroll
+    <set >
+      <if test="src != null" >
+        src = #{src,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hhjx.mage.po.IndexScrollPO" >
+    update index_scroll
+    set src = #{src,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

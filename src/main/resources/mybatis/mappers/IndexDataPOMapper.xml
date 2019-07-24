@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hhjx.mage.dao.IndexDataPOMapper" >
+  <resultMap id="BaseResultMap" type="com.hhjx.mage.po.IndexDataPO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="p2_about_eng" property="p2AboutEng" jdbcType="VARCHAR" />
+    <result column="p2_about_cha" property="p2AboutCha" jdbcType="VARCHAR" />
+    <result column="p2_about_detail" property="p2AboutDetail" jdbcType="VARCHAR" />
+    <result column="p2_about_side_img" property="p2AboutSideImg" jdbcType="VARCHAR" />
+    <result column="p3_news_eng" property="p3NewsEng" jdbcType="VARCHAR" />
+    <result column="p3_news_cha" property="p3NewsCha" jdbcType="VARCHAR" />
+    <result column="p3_news_back_img" property="p3NewsBackImg" jdbcType="VARCHAR" />
+    <result column="p4_team_eng" property="p4TeamEng" jdbcType="VARCHAR" />
+    <result column="p4_team_cha" property="p4TeamCha" jdbcType="VARCHAR" />
+    <result column="p4_team_detail" property="p4TeamDetail" jdbcType="VARCHAR" />
+    <result column="p4_team_img" property="p4TeamImg" jdbcType="VARCHAR" />
+    <result column="p6_eng" property="p6Eng" jdbcType="VARCHAR" />
+    <result column="p6_eng2" property="p6Eng2" jdbcType="VARCHAR" />
+    <result column="p6_cha" property="p6Cha" jdbcType="VARCHAR" />
+    <result column="p6_detail" property="p6Detail" jdbcType="VARCHAR" />
+    <result column="p6_img" property="p6Img" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, p2_about_eng, p2_about_cha, p2_about_detail, p2_about_side_img, p3_news_eng, 
+    p3_news_cha, p3_news_back_img, p4_team_eng, p4_team_cha, p4_team_detail, p4_team_img, 
+    p6_eng, p6_eng2, p6_cha, p6_detail, p6_img
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from index_data
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from index_data
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hhjx.mage.po.IndexDataPO" >
+    insert into index_data (id, p2_about_eng, p2_about_cha, 
+      p2_about_detail, p2_about_side_img, p3_news_eng, 
+      p3_news_cha, p3_news_back_img, p4_team_eng, 
+      p4_team_cha, p4_team_detail, p4_team_img, 
+      p6_eng, p6_eng2, p6_cha, 
+      p6_detail, p6_img)
+    values (#{id,jdbcType=INTEGER}, #{p2AboutEng,jdbcType=VARCHAR}, #{p2AboutCha,jdbcType=VARCHAR}, 
+      #{p2AboutDetail,jdbcType=VARCHAR}, #{p2AboutSideImg,jdbcType=VARCHAR}, #{p3NewsEng,jdbcType=VARCHAR}, 
+      #{p3NewsCha,jdbcType=VARCHAR}, #{p3NewsBackImg,jdbcType=VARCHAR}, #{p4TeamEng,jdbcType=VARCHAR}, 
+      #{p4TeamCha,jdbcType=VARCHAR}, #{p4TeamDetail,jdbcType=VARCHAR}, #{p4TeamImg,jdbcType=VARCHAR}, 
+      #{p6Eng,jdbcType=VARCHAR}, #{p6Eng2,jdbcType=VARCHAR}, #{p6Cha,jdbcType=VARCHAR}, 
+      #{p6Detail,jdbcType=VARCHAR}, #{p6Img,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hhjx.mage.po.IndexDataPO" >
+    insert into index_data
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="p2AboutEng != null" >
+        p2_about_eng,
+      </if>
+      <if test="p2AboutCha != null" >
+        p2_about_cha,
+      </if>
+      <if test="p2AboutDetail != null" >
+        p2_about_detail,
+      </if>
+      <if test="p2AboutSideImg != null" >
+        p2_about_side_img,
+      </if>
+      <if test="p3NewsEng != null" >
+        p3_news_eng,
+      </if>
+      <if test="p3NewsCha != null" >
+        p3_news_cha,
+      </if>
+      <if test="p3NewsBackImg != null" >
+        p3_news_back_img,
+      </if>
+      <if test="p4TeamEng != null" >
+        p4_team_eng,
+      </if>
+      <if test="p4TeamCha != null" >
+        p4_team_cha,
+      </if>
+      <if test="p4TeamDetail != null" >
+        p4_team_detail,
+      </if>
+      <if test="p4TeamImg != null" >
+        p4_team_img,
+      </if>
+      <if test="p6Eng != null" >
+        p6_eng,
+      </if>
+      <if test="p6Eng2 != null" >
+        p6_eng2,
+      </if>
+      <if test="p6Cha != null" >
+        p6_cha,
+      </if>
+      <if test="p6Detail != null" >
+        p6_detail,
+      </if>
+      <if test="p6Img != null" >
+        p6_img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="p2AboutEng != null" >
+        #{p2AboutEng,jdbcType=VARCHAR},
+      </if>
+      <if test="p2AboutCha != null" >
+        #{p2AboutCha,jdbcType=VARCHAR},
+      </if>
+      <if test="p2AboutDetail != null" >
+        #{p2AboutDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="p2AboutSideImg != null" >
+        #{p2AboutSideImg,jdbcType=VARCHAR},
+      </if>
+      <if test="p3NewsEng != null" >
+        #{p3NewsEng,jdbcType=VARCHAR},
+      </if>
+      <if test="p3NewsCha != null" >
+        #{p3NewsCha,jdbcType=VARCHAR},
+      </if>
+      <if test="p3NewsBackImg != null" >
+        #{p3NewsBackImg,jdbcType=VARCHAR},
+      </if>
+      <if test="p4TeamEng != null" >
+        #{p4TeamEng,jdbcType=VARCHAR},
+      </if>
+      <if test="p4TeamCha != null" >
+        #{p4TeamCha,jdbcType=VARCHAR},
+      </if>
+      <if test="p4TeamDetail != null" >
+        #{p4TeamDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="p4TeamImg != null" >
+        #{p4TeamImg,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Eng != null" >
+        #{p6Eng,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Eng2 != null" >
+        #{p6Eng2,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Cha != null" >
+        #{p6Cha,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Detail != null" >
+        #{p6Detail,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Img != null" >
+        #{p6Img,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.IndexDataPO" >
+    update index_data
+    <set >
+      <if test="p2AboutEng != null" >
+        p2_about_eng = #{p2AboutEng,jdbcType=VARCHAR},
+      </if>
+      <if test="p2AboutCha != null" >
+        p2_about_cha = #{p2AboutCha,jdbcType=VARCHAR},
+      </if>
+      <if test="p2AboutDetail != null" >
+        p2_about_detail = #{p2AboutDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="p2AboutSideImg != null" >
+        p2_about_side_img = #{p2AboutSideImg,jdbcType=VARCHAR},
+      </if>
+      <if test="p3NewsEng != null" >
+        p3_news_eng = #{p3NewsEng,jdbcType=VARCHAR},
+      </if>
+      <if test="p3NewsCha != null" >
+        p3_news_cha = #{p3NewsCha,jdbcType=VARCHAR},
+      </if>
+      <if test="p3NewsBackImg != null" >
+        p3_news_back_img = #{p3NewsBackImg,jdbcType=VARCHAR},
+      </if>
+      <if test="p4TeamEng != null" >
+        p4_team_eng = #{p4TeamEng,jdbcType=VARCHAR},
+      </if>
+      <if test="p4TeamCha != null" >
+        p4_team_cha = #{p4TeamCha,jdbcType=VARCHAR},
+      </if>
+      <if test="p4TeamDetail != null" >
+        p4_team_detail = #{p4TeamDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="p4TeamImg != null" >
+        p4_team_img = #{p4TeamImg,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Eng != null" >
+        p6_eng = #{p6Eng,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Eng2 != null" >
+        p6_eng2 = #{p6Eng2,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Cha != null" >
+        p6_cha = #{p6Cha,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Detail != null" >
+        p6_detail = #{p6Detail,jdbcType=VARCHAR},
+      </if>
+      <if test="p6Img != null" >
+        p6_img = #{p6Img,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hhjx.mage.po.IndexDataPO" >
+    update index_data
+    set p2_about_eng = #{p2AboutEng,jdbcType=VARCHAR},
+      p2_about_cha = #{p2AboutCha,jdbcType=VARCHAR},
+      p2_about_detail = #{p2AboutDetail,jdbcType=VARCHAR},
+      p2_about_side_img = #{p2AboutSideImg,jdbcType=VARCHAR},
+      p3_news_eng = #{p3NewsEng,jdbcType=VARCHAR},
+      p3_news_cha = #{p3NewsCha,jdbcType=VARCHAR},
+      p3_news_back_img = #{p3NewsBackImg,jdbcType=VARCHAR},
+      p4_team_eng = #{p4TeamEng,jdbcType=VARCHAR},
+      p4_team_cha = #{p4TeamCha,jdbcType=VARCHAR},
+      p4_team_detail = #{p4TeamDetail,jdbcType=VARCHAR},
+      p4_team_img = #{p4TeamImg,jdbcType=VARCHAR},
+      p6_eng = #{p6Eng,jdbcType=VARCHAR},
+      p6_eng2 = #{p6Eng2,jdbcType=VARCHAR},
+      p6_cha = #{p6Cha,jdbcType=VARCHAR},
+      p6_detail = #{p6Detail,jdbcType=VARCHAR},
+      p6_img = #{p6Img,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
