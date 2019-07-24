@@ -5,9 +5,10 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="qq" property="qq" jdbcType="VARCHAR" />
     <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="background" property="background" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, qq, wechat
+    id, qq, wechat,background
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -20,9 +21,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.hhjx.mage.po.ContacPO" >
-    insert into contac (id, qq, wechat
+    insert into contac (id, qq, wechat,background
       )
-    values (#{id,jdbcType=INTEGER}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR},#{background,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.hhjx.mage.po.ContacPO" >
@@ -33,6 +34,9 @@
       </if>
       <if test="qq != null" >
         qq,
+      </if>
+      <if test="background != null" >
+        background,
       </if>
       <if test="wechat != null" >
         wechat,
@@ -48,6 +52,9 @@
       <if test="wechat != null" >
         #{wechat,jdbcType=VARCHAR},
       </if>
+      <if test="background != null" >
+        #{background,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.ContacPO" >
@@ -56,8 +63,11 @@
       <if test="qq != null" >
         qq = #{qq,jdbcType=VARCHAR},
       </if>
-      <if test="wechat != null" >
+      <if test="qq != null" >
         wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="background != null" >
+        background = #{background,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -65,7 +75,8 @@
   <update id="updateByPrimaryKey" parameterType="com.hhjx.mage.po.ContacPO" >
     update contac
     set qq = #{qq,jdbcType=VARCHAR},
-      wechat = #{wechat,jdbcType=VARCHAR}
+      wechat = #{wechat,jdbcType=VARCHAR},
+      background = #{background,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

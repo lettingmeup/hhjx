@@ -1,5 +1,7 @@
 package com.hhjx.mage.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.hhjx.mage.po.IndexScrollPO;
@@ -10,6 +12,8 @@ public interface IndexScrollPOMapper {
     int insert(IndexScrollPO record);
 
     int insertSelective(IndexScrollPO record);
+    
+    List<IndexScrollPO> selectAllImg();
 
     IndexScrollPO selectByPrimaryKey(Integer id);
 
