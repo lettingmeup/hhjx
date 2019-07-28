@@ -58,9 +58,7 @@ private IndexService indexService;
 			result.setBackCode("9999");
             return result;
         }
-		
 		String fileName = file.getOriginalFilename();
-        
         String filePath = path;
         try {
             File dest = new File(filePath+fileName);

@@ -10,6 +10,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.hhjx.mage.bo.NewsAndHonorBO;
 import com.hhjx.mage.bo.NewsAndHonorListBO;
+import com.hhjx.mage.bo.ResultData;
 import com.hhjx.mage.dao.IndexNewsHonorPOMapper;
 import com.hhjx.mage.po.IndexNewsHonorPO;
 import com.hhjx.mage.service.NewsAndHonorService;
@@ -84,6 +85,70 @@ public class NewsAndHonorServiceImpl implements NewsAndHonorService {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public ResultData delete(String title) {
+		ResultData result = null;
+		try {
+			int delResult = indexNewsHonorPOMapper.deleteByPrimaryKey(title);
+			if(delResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		
+		return result;
+	}
+
+	@Override
+	public ResultData insertList(List<NewsAndHonorBO> list) {
+		ResultData result = null;
+		List<IndexNewsHonorPO> poList = new ArrayList<>();
+		IndexNewsHonorPO po = null;
+		for(NewsAndHonorBO bo:list) {
+			po = new IndexNewsHonorPO();
+			po.setImg(bo.getImg());
+			po.setIndex(bo.getIndex());
+			po.setStatus(bo.getStatus());
+			po.setText(bo.getText());
+			po.setTitle(bo.getTitle());
+			poList.add(po);
+		}
+		try {
+			int a = indexNewsHonorPOMapper.insertList(poList);
+			if(a!=list.size()) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		result = new ResultData();
+		result.setBackCode("0000");
+		result.setBackDesc("操作成功");
+		return result;
+		
 	}
 
 }

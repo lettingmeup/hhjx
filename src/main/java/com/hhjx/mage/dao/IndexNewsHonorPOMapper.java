@@ -7,9 +7,11 @@ import org.apache.ibatis.annotations.Mapper;
 import com.hhjx.mage.po.IndexNewsHonorPO;
 @Mapper
 public interface IndexNewsHonorPOMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String title);
 
     int insert(IndexNewsHonorPO record);
+    
+    int insertList(List<IndexNewsHonorPO> poList);
 
     int insertSelective(IndexNewsHonorPO record);
 

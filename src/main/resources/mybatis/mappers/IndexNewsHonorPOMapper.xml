@@ -33,15 +33,19 @@
     where status = #{status,jdbcType=INTEGER} GROUP BY title
   </select>
   
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from index_news_honor
-    where id = #{id,jdbcType=INTEGER}
+    where title = #{title,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.hhjx.mage.po.IndexNewsHonorPO" >
-    insert into index_news_honor (id, title, t_index, 
+  <insert id="insertList" parameterType="java.util.List" >
+    insert into index_news_honor ( title, t_index, 
       text, img, status)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{index,jdbcType=INTEGER}, 
-      #{text,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+    values 
+    <foreach collection="list" item="item" index="index" separator=",">
+    (#{item.title,jdbcType=VARCHAR}, #{item.index,jdbcType=INTEGER}, 
+      #{item.text,jdbcType=VARCHAR}, #{item.img,jdbcType=VARCHAR}, #{item.status,jdbcType=VARCHAR})
+    </foreach>
+    
   </insert>
   <insert id="insertSelective" parameterType="com.hhjx.mage.po.IndexNewsHonorPO" >
     insert into index_news_honor

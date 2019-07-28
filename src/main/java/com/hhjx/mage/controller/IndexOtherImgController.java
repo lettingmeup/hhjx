@@ -37,12 +37,7 @@ public class IndexOtherImgController {
         String filePath = path;
         try {
             File dest = new File(filePath+fileName);
-            if(dest.exists()) {
-            	result = new ResultData();
-            	result.setBackDesc("上传失败,文件已存在");
-    			result.setBackCode("9999");
-    			return result;
-            }
+           
             file.transferTo(dest);
         } catch (IOException e) {
         	System.out.println(e.getMessage());
@@ -73,12 +68,7 @@ public class IndexOtherImgController {
         String filePath = path;
         try {
             File dest = new File(filePath+fileName);
-            if(dest.exists()) {
-            	result = new ResultData();
-            	result.setBackDesc("上传失败,文件已存在");
-    			result.setBackCode("9999");
-    			return result;
-            }
+           
             file.transferTo(dest);
         } catch (IOException e) {
         	System.out.println(e.getMessage());
@@ -109,12 +99,7 @@ public class IndexOtherImgController {
         String filePath = path;
         try {
             File dest = new File(filePath+fileName);
-            if(dest.exists()) {
-            	result = new ResultData();
-            	result.setBackDesc("上传失败,文件已存在");
-    			result.setBackCode("9999");
-    			return result;
-            }
+           
             file.transferTo(dest);
         } catch (IOException e) {
         	System.out.println(e.getMessage());
@@ -145,12 +130,7 @@ public class IndexOtherImgController {
         String filePath = path;
         try {
             File dest = new File(filePath+fileName);
-            if(dest.exists()) {
-            	result = new ResultData();
-            	result.setBackDesc("上传失败,文件已存在");
-    			result.setBackCode("9999");
-    			return result;
-            }
+            
             file.transferTo(dest);
         } catch (IOException e) {
         	System.out.println(e.getMessage());
