@@ -10,73 +10,24 @@
   <sql id="Base_Column_List" >
     id, qq, wechat,background
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
     from contac
-    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from contac
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.hhjx.mage.po.ContacPO" >
-    insert into contac (id, qq, wechat,background
-      )
-    values (#{id,jdbcType=INTEGER}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR},#{background,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.hhjx.mage.po.ContacPO" >
-    insert into contac
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="qq != null" >
-        qq,
-      </if>
-      <if test="background != null" >
-        background,
-      </if>
-      <if test="wechat != null" >
-        wechat,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="qq != null" >
-        #{qq,jdbcType=VARCHAR},
-      </if>
-      <if test="wechat != null" >
-        #{wechat,jdbcType=VARCHAR},
-      </if>
-      <if test="background != null" >
-        #{background,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.ContacPO" >
+  <update id="updateImg" parameterType="com.hhjx.mage.po.ContacPO" >
     update contac
-    <set >
-      <if test="qq != null" >
+    <set>
+      <if test="qq != null and qq != ''" >
         qq = #{qq,jdbcType=VARCHAR},
       </if>
-      <if test="qq != null" >
+      <if test="wechat != null and wechat != ''" >
         wechat = #{wechat,jdbcType=VARCHAR},
       </if>
-      <if test="background != null" >
+      <if test="background != null and background != ''" >
         background = #{background,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.hhjx.mage.po.ContacPO" >
-    update contac
-    set qq = #{qq,jdbcType=VARCHAR},
-      wechat = #{wechat,jdbcType=VARCHAR},
-      background = #{background,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
