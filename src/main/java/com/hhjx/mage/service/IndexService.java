@@ -12,4 +12,5 @@ public interface IndexService {
   public ResultData deldte(IndexScollBO reqBO);
   //主数据
   public ResultData update(IndexDataBO reqBO);
+  public IndexDataBO getIndexData();
 }

@@ -1,5 +1,7 @@
 package com.hhjx.mage.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.hhjx.mage.po.SystemCliTbPO;
@@ -12,6 +14,7 @@ public interface SystemCliTbPOMapper {
     int insertSelective(SystemCliTbPO record);
 
     SystemCliTbPO selectByPrimaryKey(Integer id);
+    List<SystemCliTbPO> selectByFaId(Integer id);
 
     int updateByPrimaryKeySelective(SystemCliTbPO record);
 

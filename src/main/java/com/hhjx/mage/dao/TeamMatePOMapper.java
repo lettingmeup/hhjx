@@ -1,5 +1,7 @@
 package com.hhjx.mage.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.hhjx.mage.po.TeamMatePO;
@@ -12,6 +14,7 @@ public interface TeamMatePOMapper {
     int insertSelective(TeamMatePO record);
 
     TeamMatePO selectByPrimaryKey(Integer id);
+    List<TeamMatePO> selectByFaId(Integer id);
 
     int updateByPrimaryKeySelective(TeamMatePO record);
 

@@ -13,6 +13,7 @@ public interface AboutImpPOMapper {
 
     AboutImpPO selectByPrimaryKey(Integer id);
 
+    AboutImpPO selectAll();
     int updateByPrimaryKeySelective(AboutImpPO record);
 
     int updateByPrimaryKey(AboutImpPO record);

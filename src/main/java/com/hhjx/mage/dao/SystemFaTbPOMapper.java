@@ -1,5 +1,7 @@
 package com.hhjx.mage.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.hhjx.mage.po.SystemFaTbPO;
@@ -12,6 +14,8 @@ public interface SystemFaTbPOMapper {
     int insertSelective(SystemFaTbPO record);
 
     SystemFaTbPO selectByPrimaryKey(Integer id);
+    
+    List<SystemFaTbPO> selectAll();
 
     int updateByPrimaryKeySelective(SystemFaTbPO record);
 

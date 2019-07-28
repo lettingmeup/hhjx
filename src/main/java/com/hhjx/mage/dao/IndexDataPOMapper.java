@@ -10,8 +10,10 @@ public interface IndexDataPOMapper {
     int insert(IndexDataPO record);
 
     int insertSelective(IndexDataPO record);
+    
+    IndexDataPO getIndexData();
 
-    IndexDataPO selectByPrimaryKey(Integer id);
+    IndexDataPO selectByPrimaryKey();
 
     int updateByPrimaryKeySelective(IndexDataPO record);
 

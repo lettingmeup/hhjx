@@ -11,6 +11,12 @@
   <sql id="Base_Column_List" >
     id, title, num, spec, danwei
   </sql>
+  
+  <select id="selectaAll" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from index_block
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.hhjx.mage.bo.IndexDataBO;
 import com.hhjx.mage.bo.IndexImgListReqBo;
 import com.hhjx.mage.bo.IndexScollBO;
 import com.hhjx.mage.bo.ResultData;
@@ -21,8 +22,25 @@ import com.hhjx.mage.service.IndexService;
 @Controller
 @RequestMapping("index")
 public class IndexScollAddController {
+	public static String path = "D:\\SogouInput\\Desktop\\JAY\\";
 @Autowired
 private IndexService indexService;
+      
+	@RequestMapping(value="getIndexData.do")
+	@ResponseBody
+	public IndexDataBO getIndexData() {
+		IndexDataBO result = indexService.getIndexData();
+		return result;
+	}
+
+     @RequestMapping(value="updateIndexData.do")
+     @ResponseBody
+     public ResultData updateIndexData(@RequestBody IndexDataBO reqBO){
+    	 ResultData result = indexService.update(reqBO);
+		return result;
+    	 
+     }
+
 	@RequestMapping(value="getIndexImgList.do")
 	@ResponseBody
 	public IndexImgListReqBo getIndexImg() {
@@ -40,15 +58,15 @@ private IndexService indexService;
 			result.setBackCode("9999");
             return result;
         }
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss:SSS");//设置日期格式
+		
 		String fileName = file.getOriginalFilename();
-        String data = df.format(new Date());
-        String filePath = "/usr/local/tomcat/apache-tomcat-9.0.22/webapps/imgs/";
+        
+        String filePath = path;
         try {
-            File dest = new File(filePath+data+fileName);
+            File dest = new File(filePath+fileName);
             file.transferTo(dest);
             IndexScollBO reqBO = new IndexScollBO();
-            reqBO.setSrc("http://www.hhjxedu.com/imgs/"+data+fileName);
+            reqBO.setSrc("http://49.232.53.207/imgs/"+fileName);
             result = indexService.addImg(reqBO);
         } catch (IOException e) {
         	System.out.println(e.getMessage());

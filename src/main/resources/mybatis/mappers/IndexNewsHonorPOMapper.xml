@@ -4,13 +4,13 @@
   <resultMap id="BaseResultMap" type="com.hhjx.mage.po.IndexNewsHonorPO" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="index" property="index" jdbcType="INTEGER" />
+    <result column="t_index" property="index" jdbcType="INTEGER" />
     <result column="text" property="text" jdbcType="VARCHAR" />
     <result column="img" property="img" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, index, text, img, status
+    id, title, t_index, text, img, status
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -18,12 +18,27 @@
     from index_news_honor
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectByTitle" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from index_news_honor
+    where title = #{title,jdbcType=VARCHAR} ORDER BY t_index
+  </select>
+  
+  <select id="selectByStatus" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from index_news_honor
+    where status = #{status,jdbcType=INTEGER} GROUP BY title
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from index_news_honor
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.hhjx.mage.po.IndexNewsHonorPO" >
-    insert into index_news_honor (id, title, index, 
+    insert into index_news_honor (id, title, t_index, 
       text, img, status)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{index,jdbcType=INTEGER}, 
       #{text,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
@@ -38,7 +53,7 @@
         title,
       </if>
       <if test="index != null" >
-        index,
+        t_index,
       </if>
       <if test="text != null" >
         text,
@@ -78,7 +93,7 @@
         title = #{title,jdbcType=VARCHAR},
       </if>
       <if test="index != null" >
-        index = #{index,jdbcType=INTEGER},
+        t_index = #{index,jdbcType=INTEGER},
       </if>
       <if test="text != null" >
         text = #{text,jdbcType=VARCHAR},
@@ -95,7 +110,7 @@
   <update id="updateByPrimaryKey" parameterType="com.hhjx.mage.po.IndexNewsHonorPO" >
     update index_news_honor
     set title = #{title,jdbcType=VARCHAR},
-      index = #{index,jdbcType=INTEGER},
+      t_index = #{index,jdbcType=INTEGER},
       text = #{text,jdbcType=VARCHAR},
       img = #{img,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR}

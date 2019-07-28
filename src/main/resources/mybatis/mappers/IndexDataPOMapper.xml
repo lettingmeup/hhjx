@@ -25,11 +25,17 @@
     p3_news_cha, p3_news_back_img, p4_team_eng, p4_team_cha, p4_team_detail, p4_team_img, 
     p6_eng, p6_eng2, p6_cha, p6_detail, p6_img
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  
+  <select id="getIndexData" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from index_data
-    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from index_data
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from index_data
