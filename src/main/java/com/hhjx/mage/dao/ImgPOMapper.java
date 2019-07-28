@@ -11,7 +11,7 @@ public interface ImgPOMapper {
 
     int insertSelective(ImgPO record);
 
-    ImgPO selectByPrimaryKey(Integer id);
+    ImgPO selectByPrimaryKey();
 
     int updateByPrimaryKeySelective(ImgPO record);
 

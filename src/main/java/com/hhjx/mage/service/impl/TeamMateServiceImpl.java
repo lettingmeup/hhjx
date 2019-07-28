@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
+import com.hhjx.mage.bo.ImgBO;
 import com.hhjx.mage.bo.TeamMateBO;
 import com.hhjx.mage.bo.TeamMateListBO;
+import com.hhjx.mage.dao.ImgPOMapper;
 import com.hhjx.mage.dao.TeamMatePOMapper;
+import com.hhjx.mage.po.ImgPO;
 import com.hhjx.mage.po.TeamMatePO;
 import com.hhjx.mage.service.TeamMateService;
 @Service
@@ -18,6 +21,8 @@ import com.hhjx.mage.service.TeamMateService;
 public class TeamMateServiceImpl implements TeamMateService {
 	@Autowired
 	private TeamMatePOMapper teamMatePOMapper;
+	@Autowired
+	private ImgPOMapper imgPOMapper;
 
 	@Override
 	public TeamMateListBO getMate(TeamMateBO reqBO) {
@@ -43,9 +48,32 @@ public class TeamMateServiceImpl implements TeamMateService {
 			result = new TeamMateListBO();
 			result.setBackCode("9999");
 			result.setBackDesc("操作失败");
+			return result;
 		}
 		
 		return result;
+	}
+
+	@Override
+	public ImgBO getTeamImg() {
+		ImgBO bo = null;
+		try {
+			ImgPO po = imgPOMapper.selectByPrimaryKey();
+			bo = new ImgBO();
+			bo.setBackCode("0000");
+			bo.setBackDesc("操作成功");
+			bo.setId(po.getId());
+			bo.setImg(po.getImg());
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			bo = new ImgBO();
+			bo.setBackCode("0000");
+			bo.setBackDesc("操作成功");
+			return bo;
+		}
+		
+		return bo;
 	}
 
 }

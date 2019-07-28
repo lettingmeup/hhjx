@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hhjx.mage.bo.ImgBO;
 import com.hhjx.mage.bo.TeamMateBO;
 import com.hhjx.mage.bo.TeamMateListBO;
 import com.hhjx.mage.service.TeamMateService;
@@ -20,6 +21,13 @@ public class TeamMateController {
 	@ResponseBody
 	public TeamMateListBO getTeamMate(@RequestBody TeamMateBO reqBO) {
 		TeamMateListBO result = teamMateService.getMate(reqBO);
+		return result;
+	}
+	
+	@RequestMapping(value="getTeamImg.do")
+	@ResponseBody
+	public ImgBO getTeamImg() {
+		ImgBO result = teamMateService.getTeamImg();
 		return result;
 	}
 }
