@@ -5,15 +5,12 @@ import org.apache.ibatis.annotations.Mapper;
 import com.hhjx.mage.po.ContacPO;
 @Mapper
 public interface ContacPOMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(ContacPO record);
+    ContacPO selectAll();
 
-    int insertSelective(ContacPO record);
+    int updateImg(ContacPO po);
 
-    ContacPO selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(ContacPO record);
 
-    int updateByPrimaryKey(ContacPO record);
+
 }
