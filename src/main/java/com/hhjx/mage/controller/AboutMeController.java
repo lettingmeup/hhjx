@@ -1,5 +1,13 @@
 package com.hhjx.mage.controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +32,7 @@ public class AboutMeController {
 		AboutImpBO result = aboutService.getAboutMeData();
 		return result;
 	}
-	
+	  
 	@RequestMapping(value="getAboutScoll.do")
 	@ResponseBody
 	public AboutScollList getAboutScoll() {
