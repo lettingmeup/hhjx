@@ -26,9 +26,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.hhjx.mage.po.SystemFaTbPO" >
-    insert into system_fa_tb (id, eng, cha, 
+    insert into system_fa_tb ( eng, cha, 
       img)
-    values (#{id,jdbcType=INTEGER}, #{eng,jdbcType=VARCHAR}, #{cha,jdbcType=VARCHAR}, 
+    values ( #{eng,jdbcType=VARCHAR}, #{cha,jdbcType=VARCHAR}, 
       #{img,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.hhjx.mage.po.SystemFaTbPO" >

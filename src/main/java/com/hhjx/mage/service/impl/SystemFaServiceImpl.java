@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
+import com.hhjx.mage.bo.ResultData;
 import com.hhjx.mage.bo.SystemCliBO;
 import com.hhjx.mage.bo.SystemCliListBO;
 import com.hhjx.mage.bo.SystemFaBO;
@@ -24,6 +25,118 @@ public class SystemFaServiceImpl implements SystemFaService {
 	private SystemFaTbPOMapper  systemFaTbPOMapper;
 	@Autowired
 	private SystemCliTbPOMapper systemCliTbPOMapper;
+	
+	@Override
+	public ResultData deleteCli(int id) {
+		ResultData result = null;
+		try {
+			int delResult = systemCliTbPOMapper.deleteByPrimaryKey(id);
+			if(delResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		
+		return result;
+	}
+
+	@Override
+	public ResultData addCli(SystemCliBO reqBO) {
+		ResultData result = null;
+		SystemCliTbPO po = new SystemCliTbPO();
+		po.setFaId(reqBO.getFaId());
+		po.setImg(reqBO.getImg());
+		try {
+			int addResult = systemCliTbPOMapper.insertSelective(po);
+			if(addResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		
+		return result;
+	}
+
+	
+	@Override
+	public ResultData insertFaData(SystemFaBO reqBO) {
+		ResultData result = null;
+		SystemFaTbPO po = new SystemFaTbPO();
+		po.setCha(reqBO.getCha());
+		po.setEng(reqBO.getEng());
+		po.setImg(reqBO.getImg());
+		try {
+			int inResult = systemFaTbPOMapper.insert(po);
+			if(inResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public ResultData deleteFaById(int id) {
+		ResultData result = null;
+		try {
+			int faResult = systemFaTbPOMapper.deleteByPrimaryKey(id);
+			if(faResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		
+		return result;
+	}
 
 	@Override
 	public SystemFaListBO getFaData() {
@@ -84,5 +197,6 @@ public class SystemFaServiceImpl implements SystemFaService {
 		
 		return result;
 	}
+
 
 }
