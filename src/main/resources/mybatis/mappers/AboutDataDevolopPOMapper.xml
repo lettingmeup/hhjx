@@ -37,10 +37,10 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="img != null" >
+      <if test="img != null and img !=''" >
         img,
       </if>
-      <if test="type != null" >
+      <if test="type != null and type !=''" >
         type,
       </if>
     </trim>
@@ -48,10 +48,10 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="img != null" >
+      <if test="img != null and img !=''" >
         #{img,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
+      <if test="type != null and type !=''" >
         #{type,jdbcType=VARCHAR},
       </if>
     </trim>
@@ -59,10 +59,10 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.AboutDataDevolopPO" >
     update about_data_devolop
     <set >
-      <if test="img != null" >
+      <if test="img != null and img !=''" >
         img = #{img,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
+      <if test="type != null and type !=''" >
         type = #{type,jdbcType=VARCHAR},
       </if>
     </set>

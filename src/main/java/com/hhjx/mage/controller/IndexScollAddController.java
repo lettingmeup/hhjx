@@ -22,7 +22,8 @@ import com.hhjx.mage.service.IndexService;
 @Controller
 @RequestMapping("index")
 public class IndexScollAddController {
-	public static String path = "D:\\SogouInput\\Desktop\\JAY\\";
+	public static String path="usr/local/tomcat/apache-tomcat-9.0.22/webapps/imgs/";
+    public static String url="http://49.232.53.207/imgs/";
 @Autowired
 private IndexService indexService;
       
@@ -64,7 +65,7 @@ private IndexService indexService;
             File dest = new File(filePath+fileName);
             file.transferTo(dest);
             IndexScollBO reqBO = new IndexScollBO();
-            reqBO.setSrc("http://49.232.53.207/imgs/"+fileName);
+            reqBO.setSrc(url+fileName);
             result = indexService.addImg(reqBO);
         } catch (IOException e) {
         	System.out.println(e.getMessage());

@@ -18,7 +18,8 @@ import java.util.Date;
 @Controller
 @RequestMapping("contact")
 public class ContacController {
-    public static String path="E:\\asiainfo\\";
+    public static String path="usr/local/tomcat/apache-tomcat-9.0.22/webapps/imgs/";
+    public static String url="http://49.232.53.207/imgs/";
     @Autowired
     private ContacService contacService;
     @RequestMapping(value="getContacImgList.do")
@@ -38,15 +39,14 @@ public class ContacController {
             result.setBackCode("9999");
             return result;
         }
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss:SSS");//设置日期格式
         String fileName = file.getOriginalFilename();
-        String data = df.format(new Date());
         String filePath = path;
         try {
             File dest = new File(filePath+fileName);
             file.transferTo(dest);
             ContacBO reqBO = new ContacBO();
-            reqBO.setQq("http://www.hhjxedu.com/imgs/"+fileName);
+            reqBO.setId(1);
+            reqBO.setQq(url+fileName);
             result = contacService.updateImg(reqBO);
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,15 +68,14 @@ public class ContacController {
             result.setBackCode("9999");
             return result;
         }
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss:SSS");//设置日期格式
         String fileName = file.getOriginalFilename();
-        String data = df.format(new Date());
         String filePath = path;
         try {
             File dest = new File(filePath+fileName);
             file.transferTo(dest);
             ContacBO reqBO = new ContacBO();
-            reqBO.setWechat("http://www.hhjxedu.com/imgs/"+fileName);
+            reqBO.setId(1);
+            reqBO.setWechat(url+fileName);
             result = contacService.updateImg(reqBO);
         } catch (IOException e) {
             e.printStackTrace();
@@ -98,15 +97,14 @@ public class ContacController {
             result.setBackCode("9999");
             return result;
         }
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss:SSS");//设置日期格式
         String fileName = file.getOriginalFilename();
-        String data = df.format(new Date());
         String filePath = path;
         try {
             File dest = new File(filePath+fileName);
             file.transferTo(dest);
             ContacBO reqBO = new ContacBO();
-            reqBO.setBackground("http://www.hhjxedu.com/imgs/"+fileName);
+            reqBO.setId(1);
+            reqBO.setBackground(url+fileName);
             result = contacService.updateImg(reqBO);
         } catch (IOException e) {
             e.printStackTrace();

@@ -13,6 +13,7 @@ import com.hhjx.mage.bo.AboutDeployerListBO;
 import com.hhjx.mage.bo.AboutImpBO;
 import com.hhjx.mage.bo.AboutScollBO;
 import com.hhjx.mage.bo.AboutScollList;
+import com.hhjx.mage.bo.ResultData;
 import com.hhjx.mage.dao.AboutDataDevolopPOMapper;
 import com.hhjx.mage.dao.AboutImpPOMapper;
 import com.hhjx.mage.dao.AboutScrollPOMapper;
@@ -30,6 +31,121 @@ public class AboutServiceImpl implements AboutService {
 	private AboutScrollPOMapper aboutScrollPODao;
 	@Autowired
 	private AboutDataDevolopPOMapper aboutDataDevolopPODao;
+	
+	@Override
+	public ResultData updateDep(AboutDeployerBO reqBO) {
+		ResultData result = null;
+		AboutDataDevolopPO po = new AboutDataDevolopPO();
+		po.setId(reqBO.getId());
+		po.setImg(reqBO.getImg());
+		try {
+			int upResult = aboutDataDevolopPODao.updateByPrimaryKeySelective(po);
+			if(upResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		
+		return result;
+	}
+	
+	
+	
+	@Override
+	public ResultData update(AboutImpBO reqBO) {
+		ResultData result = null;
+		AboutImpPO po = new AboutImpPO();
+		po.setId(reqBO.getId());
+		po.setP1Cha(reqBO.getP1Cha());
+		po.setP1Eng(reqBO.getP1Eng());
+		po.setP1Img(reqBO.getP1Img());
+		po.setP2Cha(reqBO.getP2Cha());
+		po.setP2Detail(reqBO.getP2Detail());
+		po.setP2Eng(reqBO.getP2Eng());
+		po.setPeImg(reqBO.getPeImg());
+		try {
+			int upResult = aboutImpPODao.updateByPrimaryKeySelective(po);
+			if(upResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		
+		return result;
+	}
+	@Override
+	public ResultData delete(int id) {
+		ResultData result = null;
+		try {
+			int delResult = aboutScrollPODao.deleteByPrimaryKey(id);
+			if(delResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		
+		return result;
+	}
+	@Override
+	public ResultData insert(AboutScollBO reqBO) {
+		ResultData result = null;
+		AboutScrollPO po = new AboutScrollPO();
+		po.setImg(reqBO.getImg());
+		try {
+			int addResult = aboutScrollPODao.insert(po);
+			if(addResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		return result;
+	}
 	@Override
 	public AboutImpBO getAboutMeData() {
 		AboutImpBO result = null;
@@ -113,5 +229,5 @@ public class AboutServiceImpl implements AboutService {
 		
 		return result;
 	}
-
+	
 }

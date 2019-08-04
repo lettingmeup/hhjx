@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
+import com.hhjx.mage.bo.ResultData;
 import com.hhjx.mage.bo.TelentBO;
 import com.hhjx.mage.bo.TelentListBO;
 import com.hhjx.mage.dao.TalentPOMapper;
@@ -18,6 +19,37 @@ import com.hhjx.mage.service.TelentService;
 public class TelentServiceImpl implements TelentService {
 	@Autowired
 	private TalentPOMapper talentPOMapper;
+	
+	@Override
+	public ResultData updateTelent(TelentBO reqBO) {
+		ResultData result = null;
+		TalentPO po = new TalentPO();
+		po.setDetail(reqBO.getDetail());
+		po.setId(reqBO.getId());
+		po.setImg(reqBO.getImg());
+		po.setName(reqBO.getName());
+		try {
+			int upResult = talentPOMapper.updateByPrimaryKey(po);
+			if(upResult<=0) {
+				result = new ResultData();
+				result.setBackCode("9999");
+				result.setBackDesc("操作失败");
+				return result;
+			}
+			result = new ResultData();
+			result.setBackCode("0000");
+			result.setBackDesc("操作成功");
+		}catch (Exception e) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
+			result = new ResultData();
+			result.setBackCode("9999");
+			result.setBackDesc("操作失败");
+			return result;
+		}
+		return result;
+	}
+
 
 	@Override
 	public TelentListBO getTelent() {
@@ -49,4 +81,5 @@ public class TelentServiceImpl implements TelentService {
 		return result;
 	}
 
+	
 }

@@ -33,7 +33,7 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="img != null" >
+      <if test="img != null and img != ''" >
         img,
       </if>
     </trim>
@@ -41,7 +41,7 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="img != null" >
+      <if test="img != null and img != ''" >
         #{img,jdbcType=VARCHAR},
       </if>
     </trim>
@@ -49,7 +49,7 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.AboutScrollPO" >
     update about_scroll
     <set >
-      <if test="img != null" >
+      <if test="img != null and img != ''" >
         img = #{img,jdbcType=VARCHAR},
       </if>
     </set>

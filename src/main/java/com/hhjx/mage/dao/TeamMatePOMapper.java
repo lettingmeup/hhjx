@@ -14,6 +14,9 @@ public interface TeamMatePOMapper {
     int insertSelective(TeamMatePO record);
 
     TeamMatePO selectByPrimaryKey(Integer id);
+    
+    List<TeamMatePO> selectAll();
+    
     List<TeamMatePO> selectByFaId(Integer id);
 
     int updateByPrimaryKeySelective(TeamMatePO record);

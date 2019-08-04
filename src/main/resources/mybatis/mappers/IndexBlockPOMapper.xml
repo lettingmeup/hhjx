@@ -39,16 +39,16 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="title != null" >
+      <if test="title != null and title != ''" >
         title,
       </if>
       <if test="num != null" >
         num,
       </if>
-      <if test="spec != null" >
+      <if test="spec != null and spec != ''" >
         spec,
       </if>
-      <if test="danwei != null" >
+      <if test="danwei != null and danwei != ''" >
         danwei,
       </if>
     </trim>
@@ -56,16 +56,16 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="title != null" >
+      <if test="title != null and title != ''" >
         #{title,jdbcType=VARCHAR},
       </if>
       <if test="num != null" >
         #{num,jdbcType=INTEGER},
       </if>
-      <if test="spec != null" >
+      <if test="spec != null and spec != ''" >
         #{spec,jdbcType=VARCHAR},
       </if>
-      <if test="danwei != null" >
+      <if test="danwei != null and danwei != ''" >
         #{danwei,jdbcType=VARCHAR},
       </if>
     </trim>
@@ -73,16 +73,16 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.IndexBlockPO" >
     update index_block
     <set >
-      <if test="title != null" >
+      <if test="title != null and title != ''" >
         title = #{title,jdbcType=VARCHAR},
       </if>
       <if test="num != null" >
         num = #{num,jdbcType=INTEGER},
       </if>
-      <if test="spec != null" >
+      <if test="spec != null and spec != ''" >
         spec = #{spec,jdbcType=VARCHAR},
       </if>
-      <if test="danwei != null" >
+      <if test="danwei != null and danwei != ''" >
         danwei = #{danwei,jdbcType=VARCHAR},
       </if>
     </set>

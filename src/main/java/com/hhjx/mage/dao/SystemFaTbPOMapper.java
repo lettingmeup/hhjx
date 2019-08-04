@@ -10,7 +10,7 @@ public interface SystemFaTbPOMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(SystemFaTbPO record);
-
+    String getChaByFaId(int id);
     int insertSelective(SystemFaTbPO record);
 
     SystemFaTbPO selectByPrimaryKey(Integer id);

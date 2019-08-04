@@ -61,52 +61,52 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="p2AboutEng != null" >
+      <if test="p2AboutEng != null and p2AboutEng !=''" >
         p2_about_eng,
       </if>
-      <if test="p2AboutCha != null" >
+      <if test="p2AboutCha != null and p2AboutCha !=''" >
         p2_about_cha,
       </if>
-      <if test="p2AboutDetail != null" >
+      <if test="p2AboutDetail != null and p2AboutDetail !=''" >
         p2_about_detail,
       </if>
-      <if test="p2AboutSideImg != null" >
+      <if test="p2AboutSideImg != null and p2AboutSideImg !=''" >
         p2_about_side_img,
       </if>
-      <if test="p3NewsEng != null" >
+      <if test="p3NewsEng != null and p3NewsEng !=''" >
         p3_news_eng,
       </if>
-      <if test="p3NewsCha != null" >
+      <if test="p3NewsCha != null and p3NewsCha !=''" >
         p3_news_cha,
       </if>
-      <if test="p3NewsBackImg != null" >
+      <if test="p3NewsBackImg != null and p3NewsBackImg !=''" >
         p3_news_back_img,
       </if>
-      <if test="p4TeamEng != null" >
+      <if test="p4TeamEng != null and p4TeamEng !=''" >
         p4_team_eng,
       </if>
-      <if test="p4TeamCha != null" >
+      <if test="p4TeamCha != null and p4TeamCha !=''" >
         p4_team_cha,
       </if>
-      <if test="p4TeamDetail != null" >
+      <if test="p4TeamDetail != null and p4TeamDetail !=''" >
         p4_team_detail,
       </if>
-      <if test="p4TeamImg != null" >
+      <if test="p4TeamImg != null and p4TeamImg !=''" >
         p4_team_img,
       </if>
-      <if test="p6Eng != null" >
+      <if test="p6Eng != null and p6Eng !=''" >
         p6_eng,
       </if>
-      <if test="p6Eng2 != null" >
+      <if test="p6Eng2 != null and p6Eng2 !=''" >
         p6_eng2,
       </if>
-      <if test="p6Cha != null" >
+      <if test="p6Cha != null and p6Cha !=''" >
         p6_cha,
       </if>
-      <if test="p6Detail != null" >
+      <if test="p6Detail != null and p6Detail !=''" >
         p6_detail,
       </if>
-      <if test="p6Img != null" >
+      <if test="p6Img != null and p6Img !=''" >
         p6_img,
       </if>
     </trim>
@@ -114,52 +114,52 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="p2AboutEng != null" >
+      <if test="p2AboutEng != null and p2AboutEng !=''" >
         #{p2AboutEng,jdbcType=VARCHAR},
       </if>
-      <if test="p2AboutCha != null" >
+      <if test="p2AboutCha != null and p2AboutCha !=''" >
         #{p2AboutCha,jdbcType=VARCHAR},
       </if>
-      <if test="p2AboutDetail != null" >
+      <if test="p2AboutDetail != null and p2AboutDetail !=''" >
         #{p2AboutDetail,jdbcType=VARCHAR},
       </if>
-      <if test="p2AboutSideImg != null" >
+      <if test="p2AboutSideImg != null and p2AboutSideImg !=''" >
         #{p2AboutSideImg,jdbcType=VARCHAR},
       </if>
-      <if test="p3NewsEng != null" >
+      <if test="p3NewsEng != null and p3NewsEng !=''" >
         #{p3NewsEng,jdbcType=VARCHAR},
       </if>
-      <if test="p3NewsCha != null" >
+      <if test="p3NewsCha != null and p3NewsCha !=''" >
         #{p3NewsCha,jdbcType=VARCHAR},
       </if>
-      <if test="p3NewsBackImg != null" >
+      <if test="p3NewsBackImg != null and p3NewsBackImg !=''" >
         #{p3NewsBackImg,jdbcType=VARCHAR},
       </if>
-      <if test="p4TeamEng != null" >
+      <if test="p4TeamEng != null and p4TeamEng !=''" >
         #{p4TeamEng,jdbcType=VARCHAR},
       </if>
-      <if test="p4TeamCha != null" >
+      <if test="p4TeamCha != null and p4TeamCha !=''" >
         #{p4TeamCha,jdbcType=VARCHAR},
       </if>
-      <if test="p4TeamDetail != null" >
+      <if test="p4TeamDetail != null and p4TeamDetail !=''" >
         #{p4TeamDetail,jdbcType=VARCHAR},
       </if>
-      <if test="p4TeamImg != null" >
+      <if test="p4TeamImg != null and p4TeamImg !=''" >
         #{p4TeamImg,jdbcType=VARCHAR},
       </if>
-      <if test="p6Eng != null" >
+      <if test="p6Eng != null and p6Eng !=''" >
         #{p6Eng,jdbcType=VARCHAR},
       </if>
-      <if test="p6Eng2 != null" >
+      <if test="p6Eng2 != null and p6Eng2 !=''" >
         #{p6Eng2,jdbcType=VARCHAR},
       </if>
-      <if test="p6Cha != null" >
+      <if test="p6Cha != null and p6Cha !=''" >
         #{p6Cha,jdbcType=VARCHAR},
       </if>
-      <if test="p6Detail != null" >
+      <if test="p6Detail != null and p6Detail !=''" >
         #{p6Detail,jdbcType=VARCHAR},
       </if>
-      <if test="p6Img != null" >
+      <if test="p6Img != null and p6Img !=''" >
         #{p6Img,jdbcType=VARCHAR},
       </if>
     </trim>
@@ -167,52 +167,52 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.IndexDataPO" >
     update index_data
     <set >
-      <if test="p2AboutEng != null" >
+      <if test="p2AboutEng != null and p2AboutEng !=''" >
         p2_about_eng = #{p2AboutEng,jdbcType=VARCHAR},
       </if>
-      <if test="p2AboutCha != null" >
+      <if test="p2AboutCha != null and p2AboutCha !=''" >
         p2_about_cha = #{p2AboutCha,jdbcType=VARCHAR},
       </if>
-      <if test="p2AboutDetail != null" >
+      <if test="p2AboutDetail != null and p2AboutDetail !=''" >
         p2_about_detail = #{p2AboutDetail,jdbcType=VARCHAR},
       </if>
-      <if test="p2AboutSideImg != null" >
+      <if test="p2AboutSideImg != null and p2AboutSideImg !=''" >
         p2_about_side_img = #{p2AboutSideImg,jdbcType=VARCHAR},
       </if>
-      <if test="p3NewsEng != null" >
+      <if test="p3NewsEng != null and p3NewsEng !=''" >
         p3_news_eng = #{p3NewsEng,jdbcType=VARCHAR},
       </if>
-      <if test="p3NewsCha != null" >
+      <if test="p3NewsCha != null and p3NewsCha !=''" >
         p3_news_cha = #{p3NewsCha,jdbcType=VARCHAR},
       </if>
-      <if test="p3NewsBackImg != null" >
+      <if test="p3NewsBackImg != null and p3NewsBackImg !=''" >
         p3_news_back_img = #{p3NewsBackImg,jdbcType=VARCHAR},
       </if>
-      <if test="p4TeamEng != null" >
+      <if test="p4TeamEng != null and p4TeamEng !=''" >
         p4_team_eng = #{p4TeamEng,jdbcType=VARCHAR},
       </if>
-      <if test="p4TeamCha != null" >
+      <if test="p4TeamCha != null and p4TeamCha !=''" >
         p4_team_cha = #{p4TeamCha,jdbcType=VARCHAR},
       </if>
-      <if test="p4TeamDetail != null" >
+      <if test="p4TeamDetail != null and p4TeamDetail !=''" >
         p4_team_detail = #{p4TeamDetail,jdbcType=VARCHAR},
       </if>
-      <if test="p4TeamImg != null" >
+      <if test="p4TeamImg != null and p4TeamImg !=''" >
         p4_team_img = #{p4TeamImg,jdbcType=VARCHAR},
       </if>
-      <if test="p6Eng != null" >
+      <if test="p6Eng != null and p6Eng !=''" >
         p6_eng = #{p6Eng,jdbcType=VARCHAR},
       </if>
-      <if test="p6Eng2 != null" >
+      <if test="p6Eng2 != null and p6Eng2 !=''" >
         p6_eng2 = #{p6Eng2,jdbcType=VARCHAR},
       </if>
-      <if test="p6Cha != null" >
+      <if test="p6Cha != null and p6Cha !=''" >
         p6_cha = #{p6Cha,jdbcType=VARCHAR},
       </if>
-      <if test="p6Detail != null" >
+      <if test="p6Detail != null and p6Detail !=''" >
         p6_detail = #{p6Detail,jdbcType=VARCHAR},
       </if>
-      <if test="p6Img != null" >
+      <if test="p6Img != null and p6Img !=''" >
         p6_img = #{p6Img,jdbcType=VARCHAR},
       </if>
     </set>

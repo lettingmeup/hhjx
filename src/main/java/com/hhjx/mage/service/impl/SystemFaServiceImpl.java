@@ -25,6 +25,13 @@ public class SystemFaServiceImpl implements SystemFaService {
 	private SystemFaTbPOMapper  systemFaTbPOMapper;
 	@Autowired
 	private SystemCliTbPOMapper systemCliTbPOMapper;
+
+	
+	@Override
+	public String getNameByFaId(int id) {
+		String cha = systemFaTbPOMapper.getChaByFaId(id);
+		return cha;
+	}
 	
 	@Override
 	public ResultData deleteCli(int id) {
@@ -197,6 +204,8 @@ public class SystemFaServiceImpl implements SystemFaService {
 		
 		return result;
 	}
+
+	
 
 
 }

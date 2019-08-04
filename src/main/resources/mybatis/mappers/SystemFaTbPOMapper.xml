@@ -16,6 +16,14 @@
     from system_fa_tb
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="getChaByFaId" resultType="java.lang.String" parameterType="java.lang.Integer" >
+    select 
+    cha
+    from system_fa_tb
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
   <select id="selectAll" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -37,13 +45,13 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="eng != null" >
+      <if test="eng != null and eng != ''" >
         eng,
       </if>
-      <if test="cha != null" >
+      <if test="cha != null and cha != ''" >
         cha,
       </if>
-      <if test="img != null" >
+      <if test="img != null and img != ''" >
         img,
       </if>
     </trim>
@@ -51,13 +59,13 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="eng != null" >
+      <if test="eng != null and eng != ''" >
         #{eng,jdbcType=VARCHAR},
       </if>
-      <if test="cha != null" >
+      <if test="cha != null and cha != ''" >
         #{cha,jdbcType=VARCHAR},
       </if>
-      <if test="img != null" >
+      <if test="img != null and img != ''" >
         #{img,jdbcType=VARCHAR},
       </if>
     </trim>
@@ -65,13 +73,13 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.SystemFaTbPO" >
     update system_fa_tb
     <set >
-      <if test="eng != null" >
+      <if test="eng != null and eng != ''" >
         eng = #{eng,jdbcType=VARCHAR},
       </if>
-      <if test="cha != null" >
+      <if test="cha != null and cha != ''" >
         cha = #{cha,jdbcType=VARCHAR},
       </if>
-      <if test="img != null" >
+      <if test="img != null and img != ''" >
         img = #{img,jdbcType=VARCHAR},
       </if>
     </set>

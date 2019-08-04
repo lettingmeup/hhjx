@@ -2,10 +2,19 @@ package com.hhjx.mage.bo;
 
 public class TeamMateBO {
 	private Integer id;
-
+    private String cha;
     private String img;
 
     private Integer sysFaId;
+    
+
+	public String getCha() {
+		return cha;
+	}
+
+	public void setCha(String cha) {
+		this.cha = cha;
+	}
 
 	public Integer getId() {
 		return id;

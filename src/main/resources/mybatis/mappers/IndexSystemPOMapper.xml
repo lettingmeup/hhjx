@@ -38,16 +38,16 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="icon != null" >
+      <if test="icon != null and icon != ''" >
         icon,
       </if>
-      <if test="title != null" >
+      <if test="title != null and title != ''" >
         title,
       </if>
-      <if test="star != null" >
+      <if test="star != null and star != ''" >
         star,
       </if>
-      <if test="backImg != null" >
+      <if test="backImg != null and backImg != ''" >
         back_img,
       </if>
     </trim>
@@ -55,16 +55,16 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="icon != null" >
+      <if test="icon != null and icon != ''" >
         #{icon,jdbcType=VARCHAR},
       </if>
-      <if test="title != null" >
+      <if test="title != null and title != ''" >
         #{title,jdbcType=VARCHAR},
       </if>
-      <if test="star != null" >
+      <if test="star != null and star != ''" >
         #{star,jdbcType=VARCHAR},
       </if>
-      <if test="backImg != null" >
+      <if test="backImg != null and backImg != ''" >
         #{backImg,jdbcType=VARCHAR},
       </if>
     </trim>
@@ -72,16 +72,16 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hhjx.mage.po.IndexSystemPO" >
     update index_system
     <set >
-      <if test="icon != null" >
+      <if test="icon != null and icon != ''" >
         icon = #{icon,jdbcType=VARCHAR},
       </if>
-      <if test="title != null" >
+      <if test="title != null and title != ''" >
         title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="star != null" >
+      <if test="star != null and star != ''" >
         star = #{star,jdbcType=VARCHAR},
       </if>
-      <if test="backImg != null" >
+      <if test="backImg != null and backImg != ''" >
         back_img = #{backImg,jdbcType=VARCHAR},
       </if>
     </set>

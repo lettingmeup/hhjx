@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,8 +20,8 @@ import com.hhjx.mage.service.IndexService;
 @Controller
 @RequestMapping("index")
 public class IndexOtherImgController {
-	public static String path = "D:\\SogouInput\\Desktop\\JAY\\";
-
+	public static String path = "usr/local/tomcat/apache-tomcat-9.0.22/webapps/imgs/";
+	public static String url="http://49.232.53.207/imgs/";
 	@RequestMapping(value="sideImg.do")
 	@ResponseBody
 	public ResultData sideImg(@RequestParam("file") MultipartFile file) {

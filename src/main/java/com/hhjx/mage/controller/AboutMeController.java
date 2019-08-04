@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hhjx.mage.bo.AboutDeployerBO;
 import com.hhjx.mage.bo.AboutDeployerListBO;
 import com.hhjx.mage.bo.AboutImpBO;
+import com.hhjx.mage.bo.AboutScollBO;
 import com.hhjx.mage.bo.AboutScollList;
+import com.hhjx.mage.bo.ResultData;
 import com.hhjx.mage.service.AboutService;
 
 
@@ -46,6 +48,36 @@ public class AboutMeController {
 		AboutDeployerListBO result = aboutService.getDeplo(reqBO);
 		return result;
 	}
+	
+	@RequestMapping(value="delete.do")
+	@ResponseBody
+	public ResultData delete(@RequestBody AboutScollBO reqBO) {
+		ResultData result = aboutService.delete(reqBO.getId());
+		return result;
+	}
+	
+	@RequestMapping(value="insert.do")
+	@ResponseBody
+	public ResultData insert(@RequestBody AboutScollBO reqBO) {
+		ResultData result = aboutService.insert(reqBO);
+		return result;
+	}
+	
+	@RequestMapping(value="update.do")
+	@ResponseBody
+	public ResultData update(@RequestBody AboutImpBO reqBO) {
+		ResultData result = aboutService.update(reqBO);
+		return result;
+	}
+	
+	@RequestMapping(value="updateDep.do")
+	@ResponseBody
+	public ResultData updateDep(@RequestBody AboutDeployerBO reqBO) {
+		ResultData result = aboutService.updateDep(reqBO);
+		return result;
+	}
+	
+	
 }
 	
 

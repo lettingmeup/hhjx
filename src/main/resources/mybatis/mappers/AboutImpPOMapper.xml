@@ -42,26 +42,26 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
-      </if>
-      <if test="p1Eng != null" >
+      </if> 
+      <if test="p1Eng != null and p1Eng != ''" >
         p1_eng,
       </if>
-      <if test="p1Cha != null" >
+      <if test="p1Cha != null and p1Cha != ''" >
         p1_cha,
       </if>
-      <if test="p1Img != null" >
+      <if test="p1Img != null and p1Img != ''" >
         p1_img,
       </if>
-      <if test="p2Eng != null" >
+      <if test="p2Eng != null and p2Eng != ''" >
         p2_eng,
       </if>
-      <if test="p2Cha != null" >
+      <if test="p2Cha != null and p2Cha != ''" >
         p2_cha,
       </if>
-      <if test="p2Detail != null" >
+      <if test="p2Detail != null and p2Detail != ''" >
         p2_detail,
       </if>
-      <if test="peImg != null" >
+      <if test="peImg != null and peImg != ''" >
         pe_img,
       </if>
     </trim>
@@ -69,25 +69,25 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="p1Eng != null" >
+      <if test="p1Eng != null and p1Eng != ''" >
         #{p1Eng,jdbcType=VARCHAR},
       </if>
-      <if test="p1Cha != null" >
+      <if test="p1Cha != null and p1Cha != ''" >
         #{p1Cha,jdbcType=VARCHAR},
       </if>
-      <if test="p1Img != null" >
+      <if test="p1Img != null and p1Img != ''" >
         #{p1Img,jdbcType=VARCHAR},
       </if>
-      <if test="p2Eng != null" >
+      <if test="p2Eng != null and p2Eng != ''" >
         #{p2Eng,jdbcType=VARCHAR},
       </if>
-      <if test="p2Cha != null" >
+      <if test="p2Cha != null and p2Cha != ''" >
         #{p2Cha,jdbcType=VARCHAR},
       </if>
-      <if test="p2Detail != null" >
+      <if test="p2Detail != null and p2Detail != ''" >
         #{p2Detail,jdbcType=VARCHAR},
       </if>
-      <if test="peImg != null" >
+      <if test="peImg != null and peImg != ''" >
         #{peImg,jdbcType=VARCHAR},
       </if>
     </trim>
@@ -98,22 +98,22 @@
       <if test="p1Eng != null" >
         p1_eng = #{p1Eng,jdbcType=VARCHAR},
       </if>
-      <if test="p1Cha != null" >
+      <if test="p1Cha != null and p1Cha != ''" >
         p1_cha = #{p1Cha,jdbcType=VARCHAR},
       </if>
-      <if test="p1Img != null" >
+      <if test="p1Img != null and p1Img != ''" >
         p1_img = #{p1Img,jdbcType=VARCHAR},
       </if>
-      <if test="p2Eng != null" >
+      <if test="p2Eng != null and p2Eng != ''" >
         p2_eng = #{p2Eng,jdbcType=VARCHAR},
       </if>
-      <if test="p2Cha != null" >
+      <if test="p2Cha != null and p2Cha != ''" >
         p2_cha = #{p2Cha,jdbcType=VARCHAR},
       </if>
-      <if test="p2Detail != null" >
+      <if test="p2Detail != null and p2Detail != ''" >
         p2_detail = #{p2Detail,jdbcType=VARCHAR},
       </if>
-      <if test="peImg != null" >
+      <if test="peImg != null and peImg != ''" >
         pe_img = #{peImg,jdbcType=VARCHAR},
       </if>
     </set>

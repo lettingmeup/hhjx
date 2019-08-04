@@ -7,7 +7,7 @@ import com.hhjx.mage.bo.SystemFaBO;
 import com.hhjx.mage.bo.SystemFaListBO;
 
 public interface SystemFaService {
-	
+	String getNameByFaId(int id);
 	SystemFaListBO getFaData();
 	SystemCliListBO getCliData(SystemCliBO reqBO);
 	ResultData deleteFaById(int id);
