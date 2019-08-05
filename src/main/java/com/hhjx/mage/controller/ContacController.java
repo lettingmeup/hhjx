@@ -18,7 +18,7 @@ import java.util.Date;
 @Controller
 @RequestMapping("contact")
 public class ContacController {
-    public static String path="usr/local/tomcat/apache-tomcat-9.0.22/webapps/imgs/";
+    public static String path="/usr/local/tomcat/apache-tomcat-9.0.22/webapps/imgs/";
     public static String url="http://49.232.53.207/imgs/";
     @Autowired
     private ContacService contacService;
