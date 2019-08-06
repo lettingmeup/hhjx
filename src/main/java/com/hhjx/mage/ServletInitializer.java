@@ -9,3 +9,4 @@
   @Override protected SpringApplicationBuilder
   configure(SpringApplicationBuilder builder) { return
   builder.sources(HhjxApplication.class); } }
+ 

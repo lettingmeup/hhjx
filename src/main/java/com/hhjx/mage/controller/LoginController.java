@@ -3,7 +3,9 @@ package com.hhjx.mage.controller;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -61,11 +63,12 @@ public class LoginController {
 	public ResultData getLoginInfo(HttpServletResponse response,HttpServletRequest request) {
 		ResultData result = new ResultData();
 		Cookie[] cookies = request.getCookies();
-        
+        boolean flage = false;
 	    if (cookies != null && cookies.length >0) {
 	        for (Cookie cookie : cookies) {
 	        	if("_objc-9889".equals(cookie.getName())) {
 	        		try {
+	        			flage =true;
 						String detail = Aes.aesDecrypt(cookie.getValue(),"abcdefgabcdefg12");
 						String name = detail.substring(0, detail.indexOf("+==+"));
 						String pass = detail.substring(detail.indexOf("+==+")+4, detail.indexOf("=++="));
@@ -87,6 +90,11 @@ public class LoginController {
 					}
 	        	}
 	            
+	        }
+	        if(!flage) {
+	        	result.setBackCode("9999");
+				result.setBackDesc("用户未登陆");
+				return result;
 	        }
 	    }else {
 	    	result.setBackCode("9999");
