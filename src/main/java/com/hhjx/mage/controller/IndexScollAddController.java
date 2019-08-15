@@ -23,7 +23,7 @@ import com.hhjx.mage.service.IndexService;
 @RequestMapping("index")
 public class IndexScollAddController {
 	public static String path="/usr/local/tomcat/apache-tomcat-9.0.22/webapps/imgs/";
-    public static String url="http://49.232.53.207/imgs/";
+    public static String url="http://www.hhjxedu.com/imgs/";
 @Autowired
 private IndexService indexService;
       

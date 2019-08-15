@@ -84,7 +84,6 @@ public class IndexServiceImpl implements IndexService {
 	    po.setP6Eng2(reqBO.getP6Eng2());
 	    po.setP2AboutSideImg(reqBO.getP2AboutSideImg());
 	    po.setP3NewsBackImg(reqBO.getP3NewsBackImg());
-	    po.setP4TeamEng(reqBO.getP4TeamImg());
 	    po.setP6Img(reqBO.getP6Img());
 	    try {
 		int updateResult =  indexDataPOMapper.updateByPrimaryKeySelective(po);
