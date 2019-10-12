@@ -2,6 +2,8 @@ package com.hhjx.mage.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,10 +38,12 @@ public class TeamMateController {
         }
 		
 		String fileName = file.getOriginalFilename();
-       
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("MMddmmssSSS");
+		String day = sdf.format(date);
         String filePath = path;
         try {
-            File dest = new File(filePath+fileName);
+            File dest = new File(filePath+day+fileName);
             file.transferTo(dest);
             ImgBO bo = new ImgBO();
             bo.setId(1);
@@ -52,6 +56,9 @@ public class TeamMateController {
 			result.setBackCode("9999");
             return result;
         }
+        result = new ResultData();
+    	result.setBackDesc(day+fileName);
+		result.setBackCode("0000");
 		return result;
     
 	}

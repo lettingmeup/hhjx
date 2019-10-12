@@ -34,10 +34,12 @@ public class IndexOtherImgController {
         }
 		
 		String fileName = file.getOriginalFilename();
-       
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("MMddmmssSSS");
+		String day = sdf.format(date);
         String filePath = path;
         try {
-            File dest = new File(filePath+fileName);
+            File dest = new File(filePath+day+fileName);
            
             file.transferTo(dest);
         } catch (IOException e) {
@@ -48,7 +50,7 @@ public class IndexOtherImgController {
             return result;
         }
         result = new ResultData();
-        result.setBackDesc("上传成功");
+        result.setBackDesc(day+fileName);
 		result.setBackCode("0000");
 		return result;
     
@@ -65,10 +67,12 @@ public class IndexOtherImgController {
         }
 		
 		String fileName = file.getOriginalFilename();
-        
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("MMddmmssSSS");
+		String day = sdf.format(date);
         String filePath = path;
         try {
-            File dest = new File(filePath+fileName);
+            File dest = new File(filePath+day+fileName);
            
             file.transferTo(dest);
         } catch (IOException e) {
@@ -79,7 +83,7 @@ public class IndexOtherImgController {
             return result;
         }
         result = new ResultData();
-        result.setBackDesc("上传成功");
+        result.setBackDesc(day+fileName);
 		result.setBackCode("0000");
 		return result;
     
@@ -127,10 +131,12 @@ public class IndexOtherImgController {
         }
 		
 		String fileName = file.getOriginalFilename();
-       
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("MMddmmssSSS");
+		String day = sdf.format(date);
         String filePath = path;
         try {
-            File dest = new File(filePath+fileName);
+            File dest = new File(filePath+day+fileName);
             
             file.transferTo(dest);
         } catch (IOException e) {
@@ -141,10 +147,17 @@ public class IndexOtherImgController {
             return result;
         }
         result = new ResultData();
-        result.setBackDesc("上传成功");
+        result.setBackDesc(day+fileName);
 		result.setBackCode("0000");
 		return result;
     
+	}
+	public static void main(String[] args) {
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("MMddmmssSSS");
+		String day = sdf.format(date);
+		System.out.println(day);
+		
 	}
 	
 }

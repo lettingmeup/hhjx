@@ -60,9 +60,12 @@ private IndexService indexService;
             return result;
         }
 		String fileName = file.getOriginalFilename();
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("MMddmmssSSS");
+		String day = sdf.format(date);
         String filePath = path;
         try {
-            File dest = new File(filePath+fileName);
+            File dest = new File(filePath+day+fileName);
             file.transferTo(dest);
             IndexScollBO reqBO = new IndexScollBO();
             reqBO.setSrc(url+fileName);
@@ -74,6 +77,9 @@ private IndexService indexService;
 			result.setBackCode("9999");
             return result;
         }
+        result = new ResultData();
+    	result.setBackDesc(day+fileName);
+		result.setBackCode("0000");
 		return result;
     
 	}
