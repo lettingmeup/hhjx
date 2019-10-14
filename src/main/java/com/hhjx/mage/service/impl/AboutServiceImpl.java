@@ -212,6 +212,8 @@ public class AboutServiceImpl implements AboutService {
 				bo.setId(po.getId());
 				bo.setImg(po.getImg());
 				bo.setType(po.getType());
+				bo.setDetail(po.getDetail());
+				bo.setTime(po.getTime());
 				boList.add(bo);
 			}
                 result = new AboutDeployerListBO();

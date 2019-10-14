@@ -6,6 +6,26 @@ public class AboutDeployerBO {
     private String img;
 
     private String type;
+    
+    private String time;
+     private String detail;
+     
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 
 	public Integer getId() {
 		return id;
